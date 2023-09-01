@@ -1,0 +1,40 @@
+[user]
+	email = dennis.clark@lbhpartners.com
+	name = Dennis Clark
+	signingKey = ""
+[core]
+	editor = nvim
+	autocrlf = input
+#	symlinks = true
+[init]
+	defaultBranch = master
+[push]
+	default = simple
+[pull]
+	rebase = false
+	ff = only
+[fetch]
+	prune = true
+[diff]
+	colorMoved = zebra
+{{- if eq .chezmoi.os "linux" }}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/bin/git-credential-manager.exe
+[credential "https://github.com"]
+	useHttpPath = true
+	username = dennisclark-lbh
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+	username = lbhglobal
+{{-   else }}
+[credential]
+	helper = cache --timeout=3600
+{{-   end }}
+{{- end }}
+[gpg]
+	program = gpg
+[commit]
+	gpgSign = false
+[tag]
+	forceSignAnnotated = false
