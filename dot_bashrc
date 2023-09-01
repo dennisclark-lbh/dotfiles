@@ -197,4 +197,4 @@ export NVM_DIR="$HOME/.nvm"
 # asdf-vm scripts are well-behaved; keep at end of .bashrc
 [ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && . $HOME/.asdf/completions/asdf.bash
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/bashrc"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/bashrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/bashrc"
