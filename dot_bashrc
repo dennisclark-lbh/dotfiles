@@ -124,11 +124,14 @@ function set_win_title(){
   echo -ne "\033]0;$USER@${WSL_DISTRO_NAME:-$HOSTNAME} $(basename $SHELL) in $(basename "$PWD")\007"
 }
 
-# SSH agent socket (native or WSL)
-if [[ -d "$HOME/.1password" ]]; then
-  export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
-else
-  export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+# If no active SSH agent socket, set the default
+if [[ -n "$SSH_AUTH_SOCK" ]]; then
+  # SSH agent socket (native or WSL)
+  if [[ -d "$HOME/.1password" ]]; then
+    export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
+  else
+    export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+  fi
 fi
 
 # If in WSL, relay ssh agent socket to Windows host ssh agent socket
