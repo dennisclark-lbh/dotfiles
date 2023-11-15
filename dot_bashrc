@@ -125,7 +125,7 @@ function set_win_title(){
 }
 
 # If no active SSH agent socket, set the default
-if [[ -n "$SSH_AUTH_SOCK" ]]; then
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
   # SSH agent socket (native or WSL)
   if [[ -d "$HOME/.1password" ]]; then
     export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
