@@ -34,6 +34,10 @@
 {{- end }}
 [gpg]
 	program = gpg
+	format = openpgp
+[gpg "ssh"]
+	program = ssh-keygen
+	allowedSignersFile = ""
 [commit]
 	gpgSign = false
 [tag]
