@@ -49,3 +49,8 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+
+# LBH corporate scripts
+if [ -f "$HOME/.bashrc_lbhcorp" ] && host -t A ns1.lbh.corp > /dev/null; then
+    . "$HOME/.bashrc_lbhcorp"
+fi
