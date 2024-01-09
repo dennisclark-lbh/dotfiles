@@ -188,6 +188,11 @@ fi
 # https://github.com/junegunn/fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# https://github.com/nvbn/thefuck
+if command -v thefuck --version >/dev/null; then
+  eval "$(thefuck --alias)"
+fi
+
 # https://github.com/99designs/aws-vault
 export AWS_VAULT_BACKEND=pass
 export AWS_VAULT_PASS_PREFIX=aws-vault
